@@ -15,7 +15,8 @@ public:
         return *this;
     }
 
-    // To handle std::endl and other manipulators
+    // to handle std::endl and other manipulations...
+
     SafeCout& operator<<(std::ostream& (*manip)(std::ostream&)) {
         std::lock_guard<std::mutex> lock(coutMutex);
         std::cout << manip;
